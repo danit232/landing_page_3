@@ -1,0 +1,1397 @@
+/* Importar las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Open+Sans:wght@400&display=swap');
+
+body {
+  margin: 0;
+  background-color: #000;
+  /* Fondo negro */
+  color: #fff;
+  /* Texto blanco para contraste */
+}
+
+h1,
+h2,
+h3,
+span,
+.Text2,
+.Text3,
+.Text4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+  font-weight: lighter;
+}
+
+.fade-in-element.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SECCION HEADER */
+.header {
+  background-color: hsl(0, 0%, 0%);
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.logo {
+  height: 30px;
+}
+
+.logo,
+.button-cita {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.header.hidden .logo,
+.header.hidden .button-cita {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.logo-black {
+  display: none;
+}
+
+.logo-white {
+  display: block;
+}
+
+/* Estilos button-cita */
+.button-cita {
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+  letter-spacing: 5px;
+  border: none !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Estilos específicos para el botón en el header */
+.header .button-cita {
+  width: auto;
+  height: 55px;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+
+/* Estilos específicos para el botón fijo en la parte inferior derecha */
+/* Existing styles... */
+
+.button-cita:not(.header .button-cita) {
+  width: 20vh;
+  height: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: transparent;
+  color: white;
+  animation: pulsate 2s infinite alternate;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 5px #003398,
+  0 0 25px #003398,
+  0 0 50px #003398,
+  0 0 200px #003398;}
+
+
+.button-cita:not(.header .button-cita):hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 5px #003398,
+  0 0 25px #003398,
+  0 0 50px #003398,
+  0 0 200px #003398;
+transition: 0.2s;
+}
+
+@keyframes pulsate {
+  0% {
+    background-color: transparent;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
+
+.button-cita .text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-cita .text-line {
+  display: inline-block;
+}
+
+.button-cita .text-line:first-child {
+  margin: 5px;
+}
+
+.button-cita:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.button-cita .diseño {
+  position: absolute;
+  display: block;
+}
+
+.button-cita .diseño:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.button-cita .diseño:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #000000);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.button-cita .diseño:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffffff);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.button-cita .diseño:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #000000);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+/* button cita 1 */
+.button-cita1 {
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+  letter-spacing: 5px;
+  border: none !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.button-cita1 .text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  /* 
+  Para q este a lo largo
+  flex-direction: row;
+  align-items: center; */
+
+
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.button-cita1 .text-line {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.button-cita1:hover {
+  transform: scale(1.05);
+  background-color: #000000;
+  transition: transform 0.3s ease;
+}
+
+.button-cita1 .diseño {
+  position: absolute;
+  display: block;
+}
+
+.button-cita1 .diseño:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff);
+  animation: btn-anim1 1s linear infinite;
+}
+
+.button-cita1 .diseño:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #000000);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s;
+}
+
+.button-cita1 .diseño:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffffff);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s;
+}
+
+.button-cita1 .diseño:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #000000);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-cita1 {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .button-cita1 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .button-cita {
+    font-size: 12px;
+    padding: 5px 15px;
+    margin-right: 10px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .header .button-cita .text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header .button-cita .text-line {
+    display: block;
+    margin: 2px 0;
+  }
+
+  .header .button-cita .text-line:first-child {
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+
+  .button-cita:not(.header .button-cita) {
+    font-size: 12px;
+    width: 15vh;
+    padding: 5px 15px;
+    margin-right: 10px;
+    height: auto;
+    flex-direction: column;
+    bottom: 50px;
+    right: 10px;
+    letter-spacing: 2px;
+  }
+
+  .button-cita:not(.header .button-cita) .text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-cita:not(.header .button-cita) .text-line {
+    display: inline;
+    margin: 0 3px;
+  }
+
+  .button-cita:not(.header .button-cita) .text-line:first-child {
+    margin-right: 3px;
+    margin-bottom: 0;
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 320px) {
+
+  .header .button-cita,
+  .button-cita:not(.header .button-cita) {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+
+  .header .button-cita {
+    margin-right: 5px;
+  }
+
+  .button-cita:not(.header .button-cita) {
+    bottom: 60px;
+    right: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+}
+
+/* SECCION TITULO OFERTA PRINCIPAL */
+
+.hero video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* Asegura que el video esté detrás del contenido */
+  opacity: 0.47;
+}
+
+.hero {
+  text-align: left;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(22, 22, 22, 0.8) 50%, rgba(4, 4, 4, 0.9) 100%),
+    url('data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h20v20H0z" fill-opacity=".05" fill="%23FFF"/%3E%3C/svg%3E');
+  background-size: cover, 20px 20px;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.hero h1,
+.hero p,
+.arrow-container {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hero h1.fade-in,
+.hero p.fade-in,
+.arrow-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Text1,
+.Text2,
+.Text3,
+.Text4 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.Text1 {
+  font-family: 'League Spartan', sans-serif !important;
+  font-size: 6em;
+  white-space: pre-line;
+  margin-bottom: 40px;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.Text1 .highlight {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.Text1 .highlight span {
+  font-family: 'League Spartan', sans-serif !important;
+  font-weight: 500 !important;
+  display: block;
+  /* Adds a small space between lines */
+}
+
+.Text2,
+.Text3,
+.Text4 {
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+.hero p {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+.hero .highlight {
+  font-weight: bold;
+
+}
+
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.arrow-down {
+  width: 50px;
+  height: 35px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.arrow-down:hover {
+  transform: scale(1.1);
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(10px);
+  }
+
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+.divisorLine {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 30px 0;
+}
+
+/* SECCION PROVEEDORES */
+.providers {
+  padding: 30px 0;
+  background-color: #000000;
+  text-align: center;
+}
+
+.providers .container {
+  position: relative;
+}
+
+.providers h2 {
+  font-size: 3em;
+  font-weight: lighter;
+  margin-bottom: 55px;
+  margin-top: 35px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 2s;
+}
+
+.providers .highlight {
+  background: linear-gradient(45deg, #BD8713, #fde145, #BD8713, #fde145);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.providers h2.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-container {
+  overflow: hidden;
+  white-space: nowrap;
+  /* Explica para que sirve el nowrap:  */
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 2s;
+}
+
+.swiper-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+
+}
+
+.swiper-slide img {
+  height: 33px;
+  /* Ajusta el tamaño de los logos */
+  width: auto;
+  /* Mantener la relación de aspecto */
+  margin: 0 20px;
+  /* Ajusta la distancia entre los logos */
+  /*filter: invert(1);*/
+}
+
+
+/* SECCION BENEFICIOS */
+.benefits {
+  padding: 40px 0;
+  background-color: #000;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.benefit-content {
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 2s;
+}
+
+.benefit-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  background-color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  border: none;
+  border-radius: 17px;
+  box-shadow: 0 0 85px #ffffff3f;
+  transition: transform 0.5s ease;
+  animation: glowing 6s ease-in-out infinite;
+  margin-bottom: 115px;
+  margin-top: 100px;
+}
+
+.plyr__video-wrapper {
+  height: auto !important;
+  max-width: 100%;
+}
+
+.video-placeholder:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.video-placeholder video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 80px #ffffff2e, 0 0 30px #ffffff2e, 0 0 40px #ffffff2e;
+  }
+
+  50% {
+    box-shadow: 0 0 5px #379ee87b, 0 0 25px #379ee87b, 0 0 50px #379ee87b
+      /*#379ee87b*/
+    ;
+  }
+
+  100% {
+    box-shadow: 0 0 80px #ffffff2e, 0 0 30px #ffffff2e, 0 0 40px #ffffff2e;
+  }
+}
+
+
+/* SECCION CONTACTO IA */
+.background-video {
+  position: absolute;
+  opacity: 0.53;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* Asegura que el video esté detrás del contenido */
+}
+
+.contact {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(22, 22, 22, 0.8) 50%, rgba(4, 4, 4, 0.9) 100%),
+    url('data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h20v20H0z" fill-opacity=".05" fill="%23FFF"/%3E%3C/svg%3E');
+  background-size: cover, 20px 20px;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+  padding: 60px 0;
+  z-index: 1;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact h2 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 2s;
+  font-size: 3em;
+  margin-top: 0px;
+}
+
+.contact .highlight {
+  background: linear-gradient(45deg, #fde145, #BD8713);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación para el botón IRINA */
+
+.neon-button {
+  font-family: 'League Spartan', sans-serif;
+  position: relative !important;
+  padding: 7px 150px !important;
+  color: #ffffff;
+  font-size: 43px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+  letter-spacing: 5px;
+  border: none !important;
+  border-radius: 18px !important;
+  background: #000000
+    /*linear-gradient(90deg, #116de7, #083876)*/
+    !important;
+  cursor: pointer;
+  width: 200px;
+  /* Asegura un tamaño fijo */
+  display: inline-flex;
+  justify-content: center;
+  transition: transform 0.9s ease, opacity 2s ease, transform 2s ease, background 0.2s ease;
+  box-shadow: 0 0 5px #003398,
+    0 0 25px #003398,
+    0 0 50px #003398,
+    0 0 200px #003398;
+}
+
+.neon-button span {
+  margin-right: 0;
+}
+
+.neon-button:hover {
+  transform: scale(1.1);
+  transition: transform 0.9s ease;
+}
+
+.neon-button.active-background {
+  background: #ffffff !important;
+  color: #050801;
+  box-shadow: 0 0 5px #003398,
+    0 0 25px #003398,
+    0 0 50px #003398,
+    0 0 200px #003398;
+  transition: 0.2s;
+}
+
+.neon-button span {
+  margin-right: 0;
+}
+
+.neon-button .diseño {
+  position: absolute;
+  display: block;
+}
+
+.neon-button .diseño:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.neon-button .diseño:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #000000);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.neon-button .diseño:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffffff);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.neon-button .diseño:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #000000);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.neon-button .button-text {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.letter {
+  display: inline-block;
+  transition: all 0.7s ease;
+  margin-left: 5px !important;
+}
+
+.hide {
+  opacity: 0;
+  transform: scale(0);
+  width: 0;
+}
+
+.move-left {
+  transform: translateX(2px);
+}
+
+.move-right {
+  transform: translateX(-2px);
+}
+
+/* SECCION COMENTARIOS*/
+.comments-section {
+  margin-bottom: -20vh;
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(53, 53, 53, 0.05) 0%, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(circle at 75% 75%, rgba(53, 53, 53, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.comments-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.comments-section .highlight {
+  background: linear-gradient(45deg, #fde145, #BD8713);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.comments-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.comments-container h2 {
+  font-family: 'League Spartan', sans-serif !important;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 55px;
+  font-size: 3.5em;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.comments-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #fde145, #BD8713);
+}
+
+.comment-carousel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 125px;
+}
+
+.comment {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.comment.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.comment-card {
+  background: linear-gradient(145deg, #1c1c1c, #1010109d);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.comment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.stars {
+  color: #fde145;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(253, 225, 69, 0.5);
+}
+
+.comment-text {
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.author {
+  color: #BD8713;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.carousel-controls {
+  margin-top: 30vh;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-controls button {
+  background-color: transparent;
+  color: #fde145;
+  border: 2px solid #fde145;
+  padding: 12px 24px;
+  margin: 0 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-controls button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.carousel-controls button:hover::before {
+  left: 100%;
+}
+
+.carousel-controls button:hover {
+  background-color: rgba(253, 225, 69, 0.1);
+  box-shadow: 0 0 15px rgba(253, 225, 69, 0.5);
+}
+
+@media (max-width: 768px) {
+  .comments-container h2 {
+    font-size: 2.5em;
+  }
+
+  .comment-card {
+    padding: 30px;
+  }
+
+  .comment-text {
+    font-size: 1em;
+  }
+
+  .carousel-controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* SECCION FOOTER */
+
+/* Navegación lateral */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  margin: 10px 0;
+  background-color: #666;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.5s, border 0.5s;
+}
+
+.nav-dot.active {
+  background-color: #fff;
+  border: 2px solid #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+  }
+
+  .logo-black {
+    display: none;
+  }
+
+  .logo-white {
+    margin-top: 13px;
+    margin-left: 13px;
+    height: 25px;
+  }
+
+  .hero {
+    padding: 100px 2px;
+    height: 60vh;
+  }
+
+  .Text1 {
+    font: 'League Spartan', sans-serif;
+    font-weight: 500;
+    /*Aumentar espacio interlineado*/
+    line-height: 1.3;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 3.5vh;
+    font-size: 3.1em;
+  }
+
+  .Text2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    /*Aumentar espacio interlineado*/
+    line-height: 1.2;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 3.5vh;
+  }
+
+  .providers h2 {
+    font-size: 1.8em;
+    margin-bottom: 35px;
+  }
+
+  .swiper-slide img {
+    height: 16.2px;
+    /* Ajusta el tamaño de los logos para móviles */
+    width: auto;
+    /* Mantener la relación de aspecto */
+    margin: 0 8px 0px 0px;
+    /* Ajusta la distancia entre los logos para móviles */
+  }
+
+  .swiper-container {
+    width: 100%;
+  }
+
+  .benefits {
+    padding: 20px;
+  }
+
+  .benefit-item {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 80px #ffffff7a;
+    margin-bottom: 110px;
+    margin-top: 100px;
+    border-radius: 10px;
+  }
+
+  .plyr__video-wrapper {
+    height: auto !important;
+    max-width: 100%;
+  }
+
+  .contact h2 {
+    font-size: 1.8em;
+  }
+
+  .contact p {
+    font-size: 1em;
+  }
+
+  .comments-container h2 {
+    font-size: 1.8em;
+  }
+
+  .comment-card {
+    padding: 20px;
+  }
+
+  .comment-text {
+    font-size: 0.85em;
+  }
+
+  .author {
+    font-size: 0.9em;
+  }
+
+  .neon-button {
+    font-size: 25px;
+  }
+
+  /* Navegación lateral */
+  .side-nav {
+    flex-direction: row;
+    position: fixed;
+    bottom: 20px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .nav-dot {
+    width: 7px;
+    height: 7px;
+    margin: 6px 0;
+    margin: 0 6px;
+    cursor: pointer;
+  }
+
+}
+
+@media (max-width: 376px) {
+  .hero {
+    height: 75vh;
+    font-size: 0.9em;
+  }
+
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .hero p {
+    font-size: 0.8em;
+  }
+
+  .providers h2 {
+    font-size: 1.85em;
+  }
+}
